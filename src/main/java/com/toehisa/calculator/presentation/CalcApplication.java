@@ -26,7 +26,7 @@ public class CalcApplication extends Application {
         stage.show();
     }
 
-    private <T> Scene adaptiveScene(FXMLLoader loader, double width, double height) {
+    private Scene adaptiveScene(FXMLLoader loader, double width, double height) {
         try {
             if (width < height) {
                 return new Scene(loader.load(), width / 9, height / 6);
@@ -34,7 +34,7 @@ public class CalcApplication extends Application {
                 return new Scene(loader.load(), height / 6, width / 9);
             }
         } catch (IOException e) {
-            System.err.println(e);
+            System.err.println("adaptiveSceneErr:" + e);
         }
         return null;
     }
