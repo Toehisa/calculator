@@ -1,14 +1,30 @@
 package com.toehisa.calculator.presentation;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 
-public class CalcController {
-    @FXML
-    private Label welcomeText;
+import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CalcController implements Initializable {
+    static double vBoxHeight = 512;
+    static double vBoxWidth = 288;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    BorderPane viewContainer;
+    @FXML
+    GridPane mathContainer;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        viewContainer.prefHeightProperty().set(vBoxHeight * 4 / 10);
+        viewContainer.prefWidthProperty().set(vBoxWidth);
+
+        mathContainer.prefHeightProperty().set(vBoxHeight * 6 / 10);
+        mathContainer.prefWidthProperty().set(vBoxWidth);
+
     }
 }
