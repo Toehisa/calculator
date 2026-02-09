@@ -1,0 +1,20 @@
+.root {
+    -fx-background-color: #faeab7;
+}
+
+.button {
+    -fx-background-radius: 100;
+	-fx-background-color:#faeab7;
+}
+
+.operations-model {
+	-fx-font-size:18;
+	-fx-background-image: url("wallpapers/white.png");
+    -fx-background-size:100% 100%; 
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center top;
+}
+
+.jokerge-button:hover { 
+	-fx-graphic: url('wallpapers/jokerge.png'); 
+}
