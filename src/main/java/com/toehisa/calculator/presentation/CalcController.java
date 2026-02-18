@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -14,6 +15,7 @@ import javafx.stage.Screen;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.BiFunction;
 
 public class CalcController implements Initializable {
     @FXML
@@ -27,10 +29,12 @@ public class CalcController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Rectangle2D vBoxBounds = Screen.getPrimary().getVisualBounds();
 
-        int fontSize = (int)vBoxBounds.getWidth() / 100;
+        int fontSize = (int) vBoxBounds.getWidth() / 100;
 
         viewLabel.setFont(new Font("System", fontSize * 2));
+
         setButtonFontSize(mathContainer, fontSize);
+        setButtonPrefSize(mathContainer, fontSize * 2.5, fontSize * 2.5);
 
     }
 
@@ -86,11 +90,35 @@ public class CalcController implements Initializable {
     }
 
     private void setButtonFontSize(GridPane gridPane, double fontSize) {
-        for ( var i : gridPane.getChildren()) {
-            if ( i.getClass().equals(Button.class) ) {
+        for (var i : gridPane.getChildren()) {
+            if (i.getClass().equals(Button.class)) {
+                ((Button) i).setFont(new Font("System", fontSize));
                 ((Button) i).setFont(new Font("System", fontSize));
             }
         }
     }
 
+    private void setButtonPrefSize(GridPane gridPane, double height, double width) {
+        BiFunction<Node, String, Boolean> textEquals =  (node, str) -> (((Button)node).textProperty().getValue().equals(str));
+
+        for (Node i : gridPane.getChildren()) {
+            if (i.getClass().equals(Button.class)) {
+                if (textEquals.apply(i,"=")) {
+                    ((Button) i).setPrefHeight(height * 2);
+                    ((Button) i).setPrefWidth(width * 1.2);
+                } else if (textEquals.apply(i,"AC") || textEquals.apply(i,"del")) {
+                    ((Button) i).setPrefHeight(height * 1.2);
+                    ((Button) i).setPrefWidth(width * 1.2);
+                } else {
+                    ((Button) i).setPrefHeight(height);
+                    ((Button) i).setPrefWidth(width);
+                }
+            }
+
+        }
+    }
 }
+
+
+
+
