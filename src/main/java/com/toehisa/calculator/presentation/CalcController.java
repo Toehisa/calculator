@@ -4,34 +4,34 @@ import com.toehisa.calculator.data.CalcModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.stage.Screen;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CalcController implements Initializable {
-    static double vBoxHeight = 512;
-    static double vBoxWidth = 288;
-
-    @FXML
-    BorderPane viewContainer;
-    @FXML
-    GridPane mathContainer;
     @FXML
     Label viewLabel;
+    @FXML
+    GridPane mathContainer;
 
     private final CalcModel model = new CalcModel();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        viewContainer.prefHeightProperty().set(vBoxHeight * 4 / 10);
-        viewContainer.prefWidthProperty().set(vBoxWidth);
+        Rectangle2D vBoxBounds = Screen.getPrimary().getVisualBounds();
 
-        mathContainer.prefHeightProperty().set(vBoxHeight * 6 / 10);
-        mathContainer.prefWidthProperty().set(vBoxWidth);
+        int fontSize = (int)vBoxBounds.getWidth() / 100;
+
+        viewLabel.setFont(new Font("System", fontSize * 2));
+        setButtonFontSize(mathContainer, fontSize);
+
     }
 
     @FXML
@@ -68,7 +68,7 @@ public class CalcController implements Initializable {
 
     @FXML
     public void onAcBtn() {
-        clear();
+        model.clear(viewLabel);
     }
 
     @FXML
@@ -85,9 +85,12 @@ public class CalcController implements Initializable {
         model.go(viewLabel);
     }
 
-    private void clear() {
-        model.clear();
-        viewLabel.setText("");
+    private void setButtonFontSize(GridPane gridPane, double fontSize) {
+        for ( var i : gridPane.getChildren()) {
+            if ( i.getClass().equals(Button.class) ) {
+                ((Button) i).setFont(new Font("System", fontSize));
+            }
+        }
     }
 
 }
