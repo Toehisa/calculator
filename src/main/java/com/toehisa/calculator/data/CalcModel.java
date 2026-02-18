@@ -41,8 +41,9 @@ public class CalcModel {
         return true;
     }
 
-    public void clear() {
+    public void clear(Label label) {
         builder.setLength(0);
+        label.setText("");
     }
 
     public void delLast(Label label) {
