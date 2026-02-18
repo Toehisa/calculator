@@ -1,25 +1,22 @@
 package com.toehisa.calculator.presentation;
 
 
-import com.toehisa.calculator.data.SysInfoProvider.ScreenResolution;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
 import java.io.IOException;
 
 public class CalcApplication extends Application {
-    public static  double SCREEN_WIDTH = ScreenResolution.getScreenWidth(0);
-    public static  double SCREEN_HEIGHT = ScreenResolution.getScreenHeight(0);
     @Override
     public void start(Stage stage) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("calculator-view.fxml"));
-        Scene scene = adaptiveScene(fxmlLoader, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-
-        CalcController.vBoxHeight = scene.getHeight();
-        CalcController.vBoxWidth = scene.getWidth();
+        Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
+        Scene scene = adaptiveScene(fxmlLoader, visualBounds.getWidth(), visualBounds.getHeight(), 4);
 
         stage.setResizable(false);
         stage.setTitle("calculator");
