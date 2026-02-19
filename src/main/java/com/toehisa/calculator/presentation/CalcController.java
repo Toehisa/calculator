@@ -31,7 +31,7 @@ public class CalcController implements Initializable {
 
         int fontSize = (int) vBoxBounds.getWidth() / 100;
 
-        viewLabel.setFont(new Font("System", fontSize * 2));
+        viewLabel.setFont(new Font("System", fontSize * 1.8));
 
         setButtonFontSize(mathContainer, fontSize);
         setButtonPrefSize(mathContainer, fontSize * 2.5, fontSize * 2.5);
@@ -78,6 +78,12 @@ public class CalcController implements Initializable {
     @FXML
     public void onDelBtn() {
         model.delLast(viewLabel);
+
+    }
+
+    @FXML
+    public void onEqBtn() {
+        model.calculate(viewLabel);
     }
 
 
