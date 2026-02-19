@@ -3,6 +3,7 @@ package com.toehisa.calculator.data;
 import javafx.scene.control.Label;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.*;
 
@@ -82,9 +83,10 @@ public class CalcModel {
             );
         }
 
+        MathContext mc = new MathContext(6);
 
         double value = new BigDecimal(getValue(values, operations))
-                .setScale(4, RoundingMode.HALF_UP)
+                .round(mc)
                 .doubleValue();
 
         label.setText(Double.toString(value));
