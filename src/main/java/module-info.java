@@ -4,6 +4,7 @@ module com.toehisa.calculator {
 
     requires org.controlsfx.controls;
     requires java.desktop;
+    requires javafx.graphics;
 
     opens com.toehisa.calculator to javafx.fxml;
     exports com.toehisa.calculator;
