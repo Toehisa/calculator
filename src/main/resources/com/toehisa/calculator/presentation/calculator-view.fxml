@@ -39,268 +39,266 @@
               prefWidth="288.0"
               styleClass="operations-model">
         <columnConstraints>
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
-            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="ALWAYS"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints vgrow="ALWAYS"/>
         </rowConstraints>
-        <children>
-            <Button onAction="#onOperationBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #502335;"
-                    text="+"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="0"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="0"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #7b4f5f;"
-                    text="7"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="0"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="1"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #8d5442;"
-                    text="4"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="0"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="2"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #8d5442;"
-                    text="1" textFill="#faeab7"
-                    GridPane.columnIndex="0"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="3"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onOperationBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #8d5442;"
-                    text="\%"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="0"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="4"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
+        <Button onAction="#onOperationBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #502335;"
+                text="+"
+                textFill="#faeab7"
+                GridPane.columnIndex="0"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="0"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #7b4f5f;"
+                text="7"
+                textFill="#faeab7"
+                GridPane.columnIndex="0"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="1"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #8d5442;"
+                text="4"
+                textFill="#faeab7"
+                GridPane.columnIndex="0"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="2"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #8d5442;"
+                text="1" textFill="#faeab7"
+                GridPane.columnIndex="0"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="3"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onOperationBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #8d5442;"
+                text="\%"
+                textFill="#faeab7"
+                GridPane.columnIndex="0"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="4"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
 
-            <Button onAction="#onOperationBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #502335;"
-                    text="-"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="1"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="0"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #7b4f5f;"
-                    text="8"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="1"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="1"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #8d5442;"
-                    text="5"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="1"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="2"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #db9655;"
-                    text="2"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="1"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="3"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #eba556;"
-                    text="0"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="1"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="4"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
+        <Button onAction="#onOperationBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #502335;"
+                text="-"
+                textFill="#faeab7"
+                GridPane.columnIndex="1"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="0"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #7b4f5f;"
+                text="8"
+                textFill="#faeab7"
+                GridPane.columnIndex="1"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="1"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #8d5442;"
+                text="5"
+                textFill="#faeab7"
+                GridPane.columnIndex="1"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="2"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #db9655;"
+                text="2"
+                textFill="#faeab7"
+                GridPane.columnIndex="1"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="3"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #eba556;"
+                text="0"
+                textFill="#faeab7"
+                GridPane.columnIndex="1"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="4"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
 
-            <Button onAction="#onOperationBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #7b4f5f;"
-                    text="*"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="2"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="0"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #eba556;"
-                    text="9"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="2"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="1"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #db9655;"
-                    text="6"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="2"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="2"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDigitBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #db9655;"
-                    text="3"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="2"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="3"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDotBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #eba556;"
-                    text="." textFill="#faeab7"
-                    GridPane.columnIndex="2"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="4"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
+        <Button onAction="#onOperationBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #7b4f5f;"
+                text="*"
+                textFill="#faeab7"
+                GridPane.columnIndex="2"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="0"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #eba556;"
+                text="9"
+                textFill="#faeab7"
+                GridPane.columnIndex="2"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="1"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #db9655;"
+                text="6"
+                textFill="#faeab7"
+                GridPane.columnIndex="2"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="2"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDigitBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #db9655;"
+                text="3"
+                textFill="#faeab7"
+                GridPane.columnIndex="2"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="3"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDotBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #eba556;"
+                text="." textFill="#faeab7"
+                GridPane.columnIndex="2"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="4"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
 
-            <Button onAction="#onOperationBtn"
-                    prefHeight="50.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #7b4f5f;"
-                    text="/"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="3"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="0"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onAcBtn"
-                    prefHeight="50.0"
-                    prefWidth="55.0"
-                    style="-fx-background-color: #eba556;"
-                    text="AC"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="3"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="1"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onDelBtn"
-                    prefHeight="50.0"
-                    prefWidth="55.0"
-                    style="-fx-background-color: #db9655;"
-                    text="del"
-                    textFill="#faeab7"
-                    GridPane.columnIndex="3"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="2"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-            <Button onAction="#onEqBtn"
-                    prefHeight="100.0"
-                    prefWidth="50.0"
-                    style="-fx-background-color: #7b4f5f;"
-                    text="=" textFill="#faeab7"
-                    GridPane.columnIndex="3"
-                    GridPane.halignment="CENTER"
-                    GridPane.hgrow="NEVER"
-                    GridPane.rowIndex="3"
-                    GridPane.rowSpan="2"
-                    GridPane.valignment="CENTER"
-                    GridPane.vgrow="NEVER">
-            </Button>
-        </children>
+        <Button onAction="#onOperationBtn"
+                prefHeight="50.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #7b4f5f;"
+                text="/"
+                textFill="#faeab7"
+                GridPane.columnIndex="3"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="0"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onAcBtn"
+                prefHeight="50.0"
+                prefWidth="55.0"
+                style="-fx-background-color: #eba556;"
+                text="AC"
+                textFill="#faeab7"
+                GridPane.columnIndex="3"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="1"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onDelBtn"
+                prefHeight="50.0"
+                prefWidth="55.0"
+                style="-fx-background-color: #db9655;"
+                text="del"
+                textFill="#faeab7"
+                GridPane.columnIndex="3"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="2"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
+        <Button onAction="#onEqBtn"
+                prefHeight="100.0"
+                prefWidth="50.0"
+                style="-fx-background-color: #7b4f5f;"
+                text="=" textFill="#faeab7"
+                GridPane.columnIndex="3"
+                GridPane.halignment="CENTER"
+                GridPane.hgrow="NEVER"
+                GridPane.rowIndex="3"
+                GridPane.rowSpan="2"
+                GridPane.valignment="CENTER"
+                GridPane.vgrow="NEVER">
+        </Button>
     </GridPane>
     <stylesheets>
         <URL value="@calculator-style.css" />
