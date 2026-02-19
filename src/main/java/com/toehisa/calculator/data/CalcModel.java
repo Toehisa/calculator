@@ -2,6 +2,8 @@ package com.toehisa.calculator.data;
 
 import javafx.scene.control.Label;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 
@@ -49,6 +51,74 @@ public class CalcModel {
     public void delLast(Label label) {
         builder.deleteCharAt(builder.length() - 1);
         label.setText(builder.toString());
+    }
+    public void delLast() {
+        builder.deleteCharAt(builder.length() - 1);
+    }
+
+    public void calculate(Label label) {
+        int start = 0;
+        char[] chars = {'+', '-', '*', '/', '%'};
+
+        List<Character> operations = new LinkedList<>();
+        List<Double> values = new LinkedList<>();
+
+        delExtraSymbol(chars);
+
+        for (int i = 0; i < builder.length(); i++) {
+            if (listContainsChar(builder.charAt(i), chars)) {
+                values.add(Double.parseDouble(builder.substring(start, i)));
+                operations.add(builder.charAt(i));
+                start = i+1;
+            }
+        }
+
+
+        if (start < builder.length()) {
+            values.add(
+                    Double.parseDouble(
+                            builder.substring(start, builder.length())
+                    )
+            );
+        }
+
+
+        double value = new BigDecimal(getValue(values, operations))
+                .setScale(4, RoundingMode.HALF_UP)
+                .doubleValue();
+
+        label.setText(Double.toString(value));
+    }
+
+    private void delExtraSymbol(char... chars) {
+        if (listContainsChar(last(), chars)) {
+            delLast();
+        }
+    }
+
+    private static double getValue(List<Double> values, List<Character> operations) {
+        double value = values.getFirst();
+
+        for (int i = 0, j = 1; i <= values.size() && j <= operations.size(); ) {
+            switch (operations.get(i++)) {
+                case '+':
+                    value += values.get(j++);
+                    break;
+                case '-':
+                    value -= values.get(j++);
+                    break;
+                case '*':
+                    value *= values.get(j++);
+                    break;
+                case '/':
+                    value /= values.get(j++);
+                    break;
+                case '%':
+                    value *= values.get(j++) / 100;
+                    break;
+            }
+        }
+        return value;
     }
 
     public boolean keepDigitAfterZero() {
