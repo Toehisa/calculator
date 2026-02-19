@@ -4,8 +4,8 @@ import javafx.scene.control.Label;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class CalcModel {
