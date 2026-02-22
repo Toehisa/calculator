@@ -20,6 +20,7 @@ public class CalcModel {
     }
 
     public void replaceLast(Object obj) {
+        if(builder.isEmpty()) {return;}
         builder.replace(builder.length() - 1, builder.length(), (String) obj);
     }
 
@@ -32,6 +33,7 @@ public class CalcModel {
     }
 
     public boolean dotInSequence() {
+        if (builder.isEmpty()) return false;
         String[] sArr = builder.toString().split("[+\\-*/%]");
 
         char[] cArr = sArr[sArr.length - 1].toCharArray();
@@ -50,6 +52,7 @@ public class CalcModel {
     }
 
     public void delLast(Label label) {
+        if(label.getText().isEmpty()) {return;}
         builder.deleteCharAt(builder.length() - 1);
         label.setText(builder.toString());
     }
@@ -58,6 +61,8 @@ public class CalcModel {
     }
 
     public void calculate(Label label) {
+        if(label.getText().isEmpty()) {return;}
+
         int start = 0;
         char[] chars = {'+', '-', '*', '/', '%'};
 
