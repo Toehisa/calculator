@@ -1,4 +1,4 @@
-package com.toehisa.calculator.data;
+package data;
 
 import javafx.scene.control.Label;
 

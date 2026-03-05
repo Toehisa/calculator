@@ -1,10 +1,9 @@
-package com.toehisa.calculator.presentation;
+package presentation;
 
-import com.toehisa.calculator.data.CalcModel;
+import data.CalcModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
