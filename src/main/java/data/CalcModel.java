@@ -1,4 +1,4 @@
-package com.toehisa.calculator.data;
+package data;
 
 import javafx.scene.control.Label;
 
@@ -46,23 +46,15 @@ public class CalcModel {
         return true;
     }
 
-    public void clear(Label label) {
+    public void clear() {
         builder.setLength(0);
-        label.setText("");
     }
 
-    public void delLast(Label label) {
-        if(label.getText().isEmpty()) {return;}
-        builder.deleteCharAt(builder.length() - 1);
-        label.setText(builder.toString());
-    }
     public void delLast() {
         builder.deleteCharAt(builder.length() - 1);
     }
 
-    public void calculate(Label label) {
-        if(label.getText().isEmpty()) {return;}
-
+    public String calculate() {
         int start = 0;
         char[] chars = {'+', '-', '*', '/', '%'};
 
@@ -93,8 +85,7 @@ public class CalcModel {
         double value = new BigDecimal(getValue(values, operations))
                 .round(mc)
                 .doubleValue();
-
-        label.setText(Double.toString(value));
+        return Double.toString(value);
     }
 
     private void delExtraSymbol(char... chars) {
@@ -145,6 +136,11 @@ public class CalcModel {
             }
             return builder.charAt(0) != '0';
         }
+    }
+
+    @Override
+    public String toString(){
+        return builder.toString();
     }
 
     private boolean listContainsChar(char charVal, char... list) {

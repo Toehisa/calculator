@@ -1,7 +1,5 @@
-package com.toehisa.calculator;
-
-import com.toehisa.calculator.presentation.CalcApplication;
 import javafx.application.Application;
+import presentation.CalcApplication;
 
 public class Launcher {
     public static void main(String[] args) {

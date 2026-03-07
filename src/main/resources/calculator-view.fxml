@@ -11,7 +11,7 @@
       styleClass="root"
       xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.toehisa.calculator.presentation.CalcController">
+      fx:controller="presentation.CalcController">
     <BorderPane prefHeight="158.0"
                 prefWidth="288.0"
                 styleClass="operations-view">
