@@ -71,18 +71,23 @@ public class CalcController implements Initializable {
 
     @FXML
     public void onAcBtn() {
-        model.clear(viewLabel);
+        model.clear();
+        viewLabel.setText("");
     }
 
     @FXML
     public void onDelBtn() {
-        model.delLast(viewLabel);
-
+        if (!viewLabel.getText().isEmpty()) {
+            model.delLast();
+            viewLabel.setText(model.toString());
+        }
     }
 
     @FXML
     public void onEqBtn() {
-        model.calculate(viewLabel);
+        if (!viewLabel.getText().isEmpty()) {
+            viewLabel.setText(model.calculate());
+        }
     }
 
 
@@ -104,14 +109,14 @@ public class CalcController implements Initializable {
     }
 
     private void setButtonPrefSize(GridPane gridPane, double height, double width) {
-        BiFunction<Node, String, Boolean> textEquals =  (node, str) -> (((Button)node).textProperty().getValue().equals(str));
+        BiFunction<Node, String, Boolean> textEquals = (node, str) -> (((Button) node).textProperty().getValue().equals(str));
 
         for (Node i : gridPane.getChildren()) {
             if (i.getClass().equals(Button.class)) {
-                if (textEquals.apply(i,"=")) {
+                if (textEquals.apply(i, "=")) {
                     ((Button) i).setPrefHeight(height * 2);
                     ((Button) i).setPrefWidth(width * 1.2);
-                } else if (textEquals.apply(i,"AC") || textEquals.apply(i,"del")) {
+                } else if (textEquals.apply(i, "AC") || textEquals.apply(i, "del")) {
                     ((Button) i).setPrefHeight(height * 1.2);
                     ((Button) i).setPrefWidth(width * 1.2);
                 } else {
