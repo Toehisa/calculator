@@ -1,23 +1,41 @@
 import data.CalcModel;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ModelTest {
-    CalcModel model = new CalcModel();
+    CalcModel model = new CalcModel(31);
     @Test
-    public void testDotInSequence() {
-        assertFalse(model.dotInSequence(),"builder is empty");
+    public void testDotInSequence_old() {
         model.add("0");
-        assertTrue(model.dotInSequence(),"no dot");
-        model.add(".");
-        assertFalse(model.dotInSequence(),"dot in sequence");
-        model.add("10+0");
-        assertTrue(model.dotInSequence(),"bad split");
-        model.add(".");
-        assertFalse(model.dotInSequence(),"bad split");
+        assertFalse(model.dotInSequence_old(),"no dot");
+        model.clear();
+        model.add("0.");
+        assertTrue(model.dotInSequence_old(),"dot in sequence");
+        model.clear();
+        model.add("0.10+0");
+        assertFalse(model.dotInSequence_old(),"bad split");
+        model.clear();
+        model.add("0.10+0.");
+        assertTrue(model.dotInSequence_old(),"bad split");
     }
+
+    @Test
+    public void testDotInSequence_new() {
+        model.add("0");
+        assertFalse(model.dotInSequence_new(),"no dot: 0");
+        model.clear();
+        model.add("0.");
+        assertTrue(model.dotInSequence_new(),"dot in sequence: 0.");
+        model.clear();
+        model.add("0.10+0");
+        assertFalse(model.dotInSequence_new(),"bad split: 0.10+0");
+        model.clear();
+        model.add("0.10+0.");
+        assertTrue(model.dotInSequence_new(),"bad split: 0.10+0.");
+    }
+
+
 }
 
 
