@@ -1,6 +1,7 @@
 package presentation;
 
 import data.CalcModel;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +23,7 @@ public class CalcController implements Initializable {
     @FXML
     GridPane mathContainer;
 
-    private final CalcModel model = new CalcModel();
+    private final CalcModel model = new CalcModel(31);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -39,26 +40,32 @@ public class CalcController implements Initializable {
 
     @FXML
     public void onDigitBtn(ActionEvent event) {
-        if (model.keepDigitAfterZero()) {
+        if (model.isNotEmpty()) {
+            if (model.keepDigitAfterZero()) {
+                model.add(getButtonTextValue(event));
+                go();
+            }
+        } else {
             model.add(getButtonTextValue(event));
             go();
         }
-
     }
 
     @FXML
     public void onOperationBtn(ActionEvent event) {
-        if (model.lastIsDigit()) {
-            model.add(getButtonTextValue(event));
-        } else {
-            model.replaceLast(getButtonTextValue(event));
+        if (model.isNotEmpty()) {
+            if (model.lastIsDigit()) {
+                model.add(getButtonTextValue(event));
+            } else {
+                model.replaceLast(getButtonTextValue(event));
+            }
+            go();
         }
-        go();
     }
 
     @FXML
     public void onDotBtn(ActionEvent event) {
-        if (model.dotInSequence()) {
+        if (model.isNotEmpty() && !model.dotInSequence_new()) {
             if (model.lastIsDigit()) {
                 model.add(getButtonTextValue(event));
                 go();
