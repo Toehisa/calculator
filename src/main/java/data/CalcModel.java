@@ -27,12 +27,20 @@ public class CalcModel {
         builder.setLength(0);
     }
 
-    public boolean isNotEmpty() {
-        return !builder.isEmpty();
-    }
-
     public void replaceLast(String str) {
         builder.replace(builder.length() - 1, builder.length(), str);
+    }
+
+    public void delLast() {
+        builder.deleteCharAt(builder.length() - 1);
+    }
+
+    public void go(Label label) {
+        label.setText(builder.toString());
+    }
+
+    public boolean isNotEmpty() {
+        return !builder.isEmpty();
     }
 
     public boolean lastIsDigit() {
@@ -66,8 +74,19 @@ public class CalcModel {
         return false;
     }
 
-    public void delLast() {
-        builder.deleteCharAt(builder.length() - 1);
+    public boolean keepDigitAfterZero() {
+        for (int i = builder.length() - 1; i > 0; i--) {
+            if (builder.charAt(i) == '.') {
+                return true;
+            } else if (isMathOperation(builder.charAt(i))) {
+                if (builder.length() - 1 < i + 1) {
+                    return true;
+                } else {
+                    return builder.charAt(i + 1) != '0';
+                }
+            }
+        }
+        return builder.charAt(0) != '0';
     }
 
     public String calculate() {
@@ -99,34 +118,16 @@ public class CalcModel {
         return Double.toString(roundDoubleValue(value));
     }
 
-    public boolean keepDigitAfterZero() {
-        for (int i = builder.length() - 1; i > 0; i--) {
-            if (builder.charAt(i) == '.') {
-                return true;
-            } else if (isMathOperation(builder.charAt(i))) {
-                if (builder.length() - 1 < i + 1) {
-                    return true;
-                } else {
-                    return builder.charAt(i + 1) != '0';
-                }
-            }
-        }
-        return builder.charAt(0) != '0';
-    }
-
-    public void go(Label label) {
-        label.setText(builder.toString());
-    }
-
     @Override
     public String toString() {
         return builder.toString();
     }
 
-    private void delExtraSymbol() {
-        if (isMathOperation(last())) {
-            delLast();
-        }
+    private static boolean isMathOperation(char charVal) {
+        return switch (charVal) {
+            case '+', '/', '-', '*', '%' -> true;
+            default -> false;
+        };
     }
 
     private static double calcValue(List<Double> values, List<Character> operations) {
@@ -157,18 +158,6 @@ public class CalcModel {
         }
         return value;
     }
-
-    private boolean isMathOperation(char charVal) {
-        return switch (charVal) {
-            case '+', '/', '-', '*', '%' -> true;
-            default -> false;
-        };
-    }
-
-    private char last() {
-        return builder.charAt(builder.length() - 1);
-    }
-
     private static double getZeroDivideResult(double val, double val2) {
         if (val != 0 && val2 == 0) {
             return Double.POSITIVE_INFINITY;
@@ -189,5 +178,15 @@ public class CalcModel {
         } catch (NumberFormatException ignored) {
             return value;
         }
+    }
+
+    private void delExtraSymbol() {
+        if (isMathOperation(last())) {
+            delLast();
+        }
+    }
+
+    private char last() {
+        return builder.charAt(builder.length() - 1);
     }
 }
