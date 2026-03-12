@@ -2,13 +2,20 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.1.0'
-    id "me.champeau.jmh" version "0.7.3"
+    id 'me.champeau.jmh' version '0.7.3'
+    id 'com.gradleup.shadow' version '9.3.2'
 }
 
 version = '1.1'
 
 repositories {
     mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 dependencies {
@@ -20,6 +27,10 @@ dependencies {
     jmhImplementation 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
 }
 
+application {
+    mainClass.set("Launcher")
+}
+
 test {
     useJUnitPlatform()
 }
@@ -27,4 +38,10 @@ test {
 javafx {
     version = "21.0.10"
     modules = ['javafx.controls', 'javafx.fxml']
+}
+
+tasks.named('jar', Jar) {
+    manifest {
+        attributes 'Main-Class': 'Launcher'
+    }
 }
